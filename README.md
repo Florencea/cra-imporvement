@@ -1,6 +1,6 @@
 # Create React App Imporvement
 
-- This project was bootstrapped with [Create React App](https://create-react-app.dev/) and then eject and apply some imporvement on it.
+This project was bootstrapped with [Create React App](https://create-react-app.dev/) and then eject and apply some imporvement on it.
 
 - [Create React App Imporvement](#create-react-app-imporvement)
   - [Features](#features)
