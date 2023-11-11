@@ -22,13 +22,13 @@ This project was bootstrapped with [Create React App](https://create-react-app.d
 ## Features
 
 - All packages are the `latest`, no npm audit warning.
-  - Deprecated package issues are fixed.
+  - Package issues are fixed.
 - Add `pathRewrite` feature.
 - Add `npm run preview`, which share same proxy config with development server.
 - Add `npm run lint` for `eslint`.
 - Add `npm run format` for `prettier`.
-- Above new features, behaves the same as [Create React App](https://create-react-app.dev/)
-  - Which means ENVs and Documents can still be referenced
+- Despite above features, behaves the same as [Create React App](https://create-react-app.dev/)
+  - Which means CRA documents can still be referenced
   - Webpack, Babel, Jest, Browserslist, ESLint configs are all in `package.json`, behaves the same as CRA
 
 ### Proxy Path Rewrite
