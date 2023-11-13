@@ -1,13 +1,14 @@
 {
   "name": "create-react-app-imporvement",
   "version": "1.0.0",
+  "type": "commonjs",
   "private": true,
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "preview": "node scripts/preview.js",
-    "lint": "eslint --ext js,js.cjs,jsx,ts,tsx --color . && tsc",
+    "lint": "eslint --ext js,mjs.cjs,jsx,ts,tsx . && tsc",
     "format": "prettier '**/*' --write --ignore-unknown --cache"
   },
   "dependencies": {
