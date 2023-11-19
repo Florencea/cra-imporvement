@@ -1,7 +1,6 @@
 {
   "name": "create-react-app-imporvement",
   "version": "1.0.0",
-  "type": "commonjs",
   "private": true,
   "scripts": {
     "start": "node scripts/start.js",
