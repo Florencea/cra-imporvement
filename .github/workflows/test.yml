@@ -11,12 +11,19 @@ env:
   NODE_VERSION: lts/*
   NPM_VERSION: latest
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  test:
+    name: Node.js v${{ matrix.node }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: [18, 20, 21]
-    name: Tests on Node v${{ matrix.node }}
+        node:
+          - 18
+          - 20
+          - 21
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
     steps:
       - uses: actions/checkout@v4
       - name: Setup jq
