@@ -8,17 +8,16 @@ permissions:
   actions: read
   checks: write
 env:
-  NODE_VERSION: lts/*
   NPM_VERSION: latest
 jobs:
   test:
-    name: Node.js v${{ matrix.node }} on ${{ matrix.os }}
+    name: CI for Node.js ${{ matrix.node }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         node:
-          - 18
-          - 20
+          - maintenance-lts
+          - active-lts
           - latest
         os:
           - ubuntu-latest
@@ -30,6 +29,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: .github/workflows/.nvmrc.${{ matrix.node }}
+          check-latest: true
           cache: npm
       - name: Get Prefer npm version
         run: echo "NPM_VERSION=$(npm view npm@${{ env.NPM_VERSION }} version)" >> $GITHUB_ENV

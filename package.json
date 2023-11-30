@@ -8,7 +8,7 @@
     "test": "node scripts/test.js",
     "preview": "node scripts/preview.js",
     "lint": "eslint --ext js,mjs.cjs,jsx,ts,tsx . && tsc",
-    "format": "prettier '**/*' --write --ignore-unknown --cache"
+    "format": "prettier \"**/*\" --write --ignore-unknown --cache"
   },
   "dependencies": {
     "@babel/core": "^7.23.5",
