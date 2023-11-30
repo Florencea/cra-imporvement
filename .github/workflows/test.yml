@@ -3,13 +3,17 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+  checks: write
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node: [18, 20, 21]
-    name: Node ${{ matrix.node }} sample
+    name: Tests on Node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup node
