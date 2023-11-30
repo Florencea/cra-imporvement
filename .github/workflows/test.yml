@@ -8,6 +8,8 @@ permissions:
   actions: read
   checks: write
 env:
+  CI: true
+  NODE_ENV: production
   NPM_VERSION: latest
 jobs:
   test:
@@ -44,7 +46,7 @@ jobs:
       - name: Try build
         run: npm run build
       - name: Run tests
-        run: CI=true npm test -- --reporters=default --reporters=jest-junit
+        run: npm test -- --reporters=default --reporters=jest-junit
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: success() || failure()
