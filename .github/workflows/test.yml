@@ -22,7 +22,7 @@ jobs:
           node-version: ${{ matrix.node }}
           check-latest: true
           cache: npm
-      - run: npm ci
+      - run: npm ci --loglevel error --audit false --fund false
       - run: CI=true npm test -- --reporters=default --reporters=jest-junit
       - name: Test Report
         uses: dorny/test-reporter@v1
@@ -31,3 +31,4 @@ jobs:
           name: JEST Tests
           path: reports/jest-*.xml
           reporter: jest-junit
+          only-summary: true
