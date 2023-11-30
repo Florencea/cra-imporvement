@@ -49,6 +49,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "jest-junit": "^16.0.0",
     "jest-resolve": "^29.7.0",
     "jest-watch-typeahead": "^2.2.2",
     "mini-css-extract-plugin": "^2.7.6",
@@ -135,6 +136,15 @@
       "jest-watch-typeahead/testname"
     ],
     "resetMocks": true
+  },
+  "jest-junit": {
+    "outputDirectory": "reports",
+    "outputName": "jest-junit.xml",
+    "ancestorSeparator": " › ",
+    "uniqueOutputName": "false",
+    "suiteNameTemplate": "{filepath}",
+    "classNameTemplate": "{classname}",
+    "titleTemplate": "{title}"
   },
   "eslintConfig": {
     "ignorePatterns": [
