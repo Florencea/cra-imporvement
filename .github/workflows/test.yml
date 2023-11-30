@@ -18,7 +18,7 @@ jobs:
         node:
           - maintenance-lts
           - active-lts
-          - latest
+          - current
         os:
           - ubuntu-latest
           - macos-latest
