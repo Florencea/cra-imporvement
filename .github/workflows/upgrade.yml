@@ -2,7 +2,7 @@ name: Upgrade
 on:
   # GitHub Actions use UTC time, so 21:00 means 5:00 UTC +8 Timezone
   schedule:
-    - cron: "0 20 * * *"
+    - cron: "0 21 * * *"
   workflow_dispatch:
 permissions:
   contents: write
@@ -12,7 +12,6 @@ env:
   CI: true
   NODE_ENV: production
   COMMIT_MSG_BODY: ""
-  GH_TOKEN: ${{ github.token }}
 jobs:
   upgrade:
     name: Upgrade minor/patch version packages
@@ -20,8 +19,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Setup jq
-        uses: dcarbone/install-jq-action@v2.1.0
       - name: Setup node lts/*
         uses: actions/setup-node@v4
         with:
