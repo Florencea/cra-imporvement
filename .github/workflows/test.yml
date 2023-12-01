@@ -10,7 +10,6 @@ permissions:
 env:
   CI: true
   NODE_ENV: production
-  NPM_VERSION: latest
 jobs:
   test:
     name: CI for Node.js ${{ matrix.node }} on ${{ matrix.os }}
@@ -18,8 +17,8 @@ jobs:
     strategy:
       matrix:
         node:
-          - maintenance-lts
-          - active-lts
+          - lts/hydrogen
+          - lts/iron
           - current
         os:
           - ubuntu-latest
@@ -30,13 +29,9 @@ jobs:
       - name: Setup node ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
-          node-version-file: .github/workflows/.nvmrc.${{ matrix.node }}
+          node-version: ${{ matrix.node }}
           check-latest: true
           cache: npm
-      - name: Get Prefer npm version
-        run: echo "NPM_VERSION=$(npm view npm@${{ env.NPM_VERSION }} version)" >> $GITHUB_ENV
-      - name: Setup npm ${{ env.NPM_VERSION }}
-        run: npm install --audit false --fund false --loglevel error --progress false --global true npm@${{ env.NPM_VERSION }}
       - name: Install dependencies
         run: npm ci --loglevel error --audit false --fund false
       - name: Try format
