@@ -30,7 +30,12 @@ jobs:
       - name: Install dependencies
         run: npm ci --loglevel error --audit false --fund false
       - name: Check outdated packages
-        run: echo "COMMIT_MSG_BODY=$(npm outdated --json | jq -cr 'to_entries[] | select( .value.current != .value.wanted ) | "- \(.key) \(.value.current) -> \(.value.wanted)" ')"  >> $GITHUB_ENV
+        run: |
+          {
+            echo 'COMMIT_MSG_BODY<<EOF'
+            npm outdated --json | jq -cr 'to_entries[] | select( .value.current != .value.wanted ) | "- \(.key) \(.value.current) -> \(.value.wanted)" '
+            echo EOF
+          } >> "$GITHUB_ENV"
       - name: Upgade packages if needed
         if: ${{ env.COMMIT_MSG_BODY != '' }}
         run: npm update
