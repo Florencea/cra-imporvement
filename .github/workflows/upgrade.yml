@@ -9,7 +9,6 @@ permissions:
   actions: read
   checks: write
 env:
-  CI: true
   NODE_ENV: development
   COMMIT_MSG_BODY: ""
 jobs:
