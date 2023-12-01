@@ -25,7 +25,8 @@ jobs:
           - macos-latest
           - windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
       - name: Setup node ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
