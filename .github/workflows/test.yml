@@ -1,9 +1,11 @@
 name: CI
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   workflow_run:
-    workflows: ["Upgrade"]
+    workflows:
+      - Upgrade
     types:
       - completed
   workflow_dispatch:
