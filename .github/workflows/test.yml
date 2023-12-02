@@ -46,12 +46,12 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
+        with:
+          version: latest
         if: ${{ matrix.packageManager == 'pnpm' }}
 
       - name: Setup bun
         uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
         if: ${{ matrix.packageManager == 'bun' }}
 
       - name: Setup node ${{ matrix.node }}
