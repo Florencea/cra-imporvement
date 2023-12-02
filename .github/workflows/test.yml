@@ -78,21 +78,40 @@ jobs:
         run: pnpm install
 
       - name: Try format
+        if: ${{ matrix.packageManager != 'yarn-berry' }}
         run: ${{ matrix.packageManager }} run format
 
+      - name: Try format
+        if: ${{ matrix.packageManager == 'yarn-berry' }}
+        run: yarn run format
+
       - name: Try lint
+        if: ${{ matrix.packageManager != 'yarn-berry' }}
         run: ${{ matrix.packageManager }} run lint
 
+      - name: Try lint
+        if: ${{ matrix.packageManager == 'yarn-berry' }}
+        run: yarn run lint
+
       - name: Try build
+        if: ${{ matrix.packageManager != 'yarn-berry' }}
         run: ${{ matrix.packageManager }} run build
 
-      - name: Run tests with npm
+      - name: Try build
+        if: ${{ matrix.packageManager == 'yarn-berry' }}
+        run: yarn run build
+
+      - name: Run tests
         if: ${{ matrix.packageManager == 'npm' }}
         run: npm test -- --reporters=default --reporters=jest-junit
 
-      - name: Run tests with yarn/pnpm
-        if: ${{ matrix.packageManager != 'npm' }}
+      - name: Run tests
+        if: ${{ matrix.packageManager == 'yarn' || matrix.packageManager == 'pnpm' }}
         run: ${{ matrix.packageManager }} run test --reporters=default --reporters=jest-junit
+
+      - name: Run tests
+        if: ${{ matrix.packageManager == 'yarn-berry' }}
+        run: yarn run test --reporters=default --reporters=jest-junit
 
       - name: Test Report
         uses: dorny/test-reporter@v1
