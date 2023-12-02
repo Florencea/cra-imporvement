@@ -37,6 +37,7 @@ jobs:
         packageManager:
           - npm
           - yarn
+          - yarn-berry
           - pnpm
     steps:
       - name: Checkout repository
@@ -54,12 +55,18 @@ jobs:
           node-version: ${{ matrix.node }}
           check-latest: true
 
+      - name: Setup yarn-berry
+        if: ${{ matrix.packageManager == 'yarn-berry' }}
+        run: |
+          corepack enable
+          yarn set version stable
+
       - name: Install dependencies with npm
         if: ${{ matrix.packageManager == 'npm' }}
         run: npm install
 
       - name: Install dependencies with yarn
-        if: ${{ matrix.packageManager == 'yarn' }}
+        if: ${{ matrix.packageManager == 'yarn' || matrix.packageManager == 'yarn-berry' }}
         run: yarn
 
       - name: Install dependencies with pnpm
