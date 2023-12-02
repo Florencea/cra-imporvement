@@ -118,7 +118,7 @@ jobs:
         run: npm test -- --reporters=default --reporters=jest-junit
 
       - name: Run tests
-        if: ${{ matrix.packageManager == 'yarn' || matrix.packageManager == 'pnpm' }}
+        if: ${{ matrix.packageManager == 'yarn' || matrix.packageManager == 'pnpm' || matrix.packageManager == 'bun' }}
         run: ${{ matrix.packageManager }} run test --reporters=default --reporters=jest-junit
 
       - name: Run tests
