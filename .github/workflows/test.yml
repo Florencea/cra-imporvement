@@ -46,8 +46,6 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
-        with:
-          version: latest
         if: ${{ matrix.packageManager == 'pnpm' }}
 
       - name: Setup bun
