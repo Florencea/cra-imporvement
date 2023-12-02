@@ -40,6 +40,9 @@ jobs:
           - yarn-berry
           - pnpm
           - bun
+        exclude:
+          - os: windows-latest
+            packageManager: bun
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
