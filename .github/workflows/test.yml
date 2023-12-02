@@ -39,6 +39,7 @@ jobs:
           - yarn
           - yarn-berry
           - pnpm
+          - bun
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -48,6 +49,12 @@ jobs:
         with:
           version: latest
         if: ${{ matrix.packageManager == 'pnpm' }}
+
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+        if: ${{ matrix.packageManager == 'bun' }}
 
       - name: Setup node ${{ matrix.node }}
         uses: actions/setup-node@v3
@@ -76,6 +83,10 @@ jobs:
       - name: Install dependencies with pnpm
         if: ${{ matrix.packageManager == 'pnpm' }}
         run: pnpm install
+
+      - name: Install dependencies with bun
+        if: ${{ matrix.packageManager == 'bun' }}
+        run: bun install
 
       - name: Try format
         if: ${{ matrix.packageManager != 'yarn-berry' }}

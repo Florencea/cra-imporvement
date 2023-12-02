@@ -8,12 +8,12 @@ This project was bootstrapped with [Create React App](https://create-react-app.d
   - [Features](#features)
     - [Proxy Path Rewrite](#proxy-path-rewrite)
   - [Available Scripts](#available-scripts)
-    - [`npm/yarn/pnpm run start`](#npmyarnpnpm-run-start)
-    - [`npm/yarn/pnpm run test`](#npmyarnpnpm-run-test)
-    - [`npm/yarn/pnpm run build`](#npmyarnpnpm-run-build)
-    - [`npm/yarn/pnpm run preview`](#npmyarnpnpm-run-preview)
-    - [`npm/yarn/pnpm run lint`](#npmyarnpnpm-run-lint)
-    - [`npm/yarn/pnpm run format`](#npmyarnpnpm-run-format)
+    - [`npm/yarn/pnpm/bun run start`](#npmyarnpnpmbun-run-start)
+    - [`npm/yarn/pnpm/bun run test`](#npmyarnpnpmbun-run-test)
+    - [`npm/yarn/pnpm/bun run build`](#npmyarnpnpmbun-run-build)
+    - [`npm/yarn/pnpm/bun run preview`](#npmyarnpnpmbun-run-preview)
+    - [`npm/yarn/pnpm/bun run lint`](#npmyarnpnpmbun-run-lint)
+    - [`npm/yarn/pnpm/bun run format`](#npmyarnpnpmbun-run-format)
   - [Recipes](#recipes)
     - [Compatibale with IE 11](#compatibale-with-ie-11)
       - [Step-1 Use packages version support IE 11](#step-1-use-packages-version-support-ie-11)
@@ -28,11 +28,11 @@ This project was bootstrapped with [Create React App](https://create-react-app.d
   - Run GitHub Actions matrix CI on:
     - Different OS (windows-latest/macos-latest/ubuntu-latest)
     - Different Node.js version (maintenance LTS/active LTS/current)
-    - Different package manager (npm/yarn/yarn-berry/pnpm)
+    - Different package manager (npm/yarn/yarn-berry/pnpm/bun)
 - Add `pathRewrite` feature.
-- Add `npm/yarn/pnpm run preview`, which share same proxy config with development server.
-- Add `npm/yarn/pnpm run lint` for `eslint`.
-- Add `npm/yarn/pnpm run format` for `prettier`.
+- Add `npm/yarn/pnpm/bun run preview`, which share same proxy config with development server.
+- Add `npm/yarn/pnpm/bun run lint` for `eslint`.
+- Add `npm/yarn/pnpm/bun run format` for `prettier`.
 - Despite above features, behaves the same as [Create React App](https://create-react-app.dev/)
   - Which means CRA documents can still be referenced
   - Webpack, Babel, Jest, Browserslist, ESLint configs are all in `package.json`, behaves the same as CRA
@@ -57,7 +57,7 @@ This project was bootstrapped with [Create React App](https://create-react-app.d
 
 In the project directory, you can run:
 
-### `npm/yarn/pnpm run start`
+### `npm/yarn/pnpm/bun run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -65,12 +65,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm/yarn/pnpm run test`
+### `npm/yarn/pnpm/bun run test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://create-react-app.dev/docs/running-tests/) for more information.
 
-### `npm/yarn/pnpm run build`
+### `npm/yarn/pnpm/bun run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -80,7 +80,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://create-react-app.dev/docs/deployment/) for more information.
 
-### `npm/yarn/pnpm run preview`
+### `npm/yarn/pnpm/bun run preview`
 
 After build the app for production to the `build` folder.\
 Preview the app in the prodiction mode.\
@@ -88,11 +88,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.\
 
 Preview server share same proxy config with development server.
 
-### `npm/yarn/pnpm run lint`
+### `npm/yarn/pnpm/bun run lint`
 
 Use `eslint` to check issues.
 
-### `npm/yarn/pnpm run format`
+### `npm/yarn/pnpm/bun run format`
 
 Format codes with `prettier`
 
