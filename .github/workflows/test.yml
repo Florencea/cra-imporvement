@@ -66,8 +66,12 @@ jobs:
         run: npm install
 
       - name: Install dependencies with yarn
-        if: ${{ matrix.packageManager == 'yarn' || matrix.packageManager == 'yarn-berry' }}
-        run: yarn
+        if: ${{ matrix.packageManager == 'yarn'}}
+        run: yarn install
+
+      - name: Install dependencies with yarn-berry
+        if: ${{ matrix.packageManager == 'yarn-berry' }}
+        run: yarn install --no-immutable
 
       - name: Install dependencies with pnpm
         if: ${{ matrix.packageManager == 'pnpm' }}
