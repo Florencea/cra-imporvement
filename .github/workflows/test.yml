@@ -22,7 +22,7 @@ env:
 
 jobs:
   test:
-    name: CI for Node.js ${{ matrix.node }} on ${{ matrix.os }}
+    name: CI for Node.js ${{ matrix.node }} on ${{ matrix.os }} with ${{ matrix.packageManager }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -34,36 +34,60 @@ jobs:
           - ubuntu-latest
           - macos-latest
           - windows-latest
+        packageManager:
+          - npm
+          - yarn
+          - pnpm
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+        if: ${{ matrix.packageManager == 'pnpm' }}
 
       - name: Setup node ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
           check-latest: true
-          cache: npm
+          cache: ${{ matrix.packageManager }}
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install dependencies with npm
+        if: ${{ matrix.packageManager == 'npm' }}
+        run: npm install
+
+      - name: Install dependencies with yarn
+        if: ${{ matrix.packageManager == 'yarn' }}
+        run: yarn
+
+      - name: Install dependencies with pnpm
+        if: ${{ matrix.packageManager == 'pnpm' }}
+        run: pnpm install
 
       - name: Try format
-        run: npm run format
+        run: ${{ matrix.packageManager }} run format
 
       - name: Try lint
-        run: npm run lint
+        run: ${{ matrix.packageManager }} run lint
 
       - name: Try build
-        run: npm run build
+        run: ${{ matrix.packageManager }} run build
 
-      - name: Run tests
+      - name: Run tests with npm
+        if: ${{ matrix.packageManager == 'npm' }}
         run: npm test -- --reporters=default --reporters=jest-junit
+
+      - name: Run tests with yarn/pnpm
+        if: ${{ matrix.packageManager != 'npm' }}
+        run: ${{ matrix.packageManager }} run test --reporters=default --reporters=jest-junit
 
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
-          name: Tests for Node.js ${{ matrix.node }} on ${{ matrix.os }}
+          name: Tests for Node.js ${{ matrix.node }} on ${{ matrix.os }} with ${{ matrix.packageManager }}
           path: reports/jest-*.xml
           reporter: jest-junit
