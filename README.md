@@ -28,7 +28,7 @@ This project was bootstrapped with [Create React App](https://create-react-app.d
   - Run GitHub Actions matrix CI on:
     - Different OS (windows-latest/macos-latest/ubuntu-latest)
     - Different Node.js version (maintenance LTS/active LTS/current)
-    - Different package manager (npm/yarn/pnpm)
+    - Different package manager (npm/yarn/yarn-berry/pnpm)
 - Add `pathRewrite` feature.
 - Add `npm/yarn/pnpm run preview`, which share same proxy config with development server.
 - Add `npm/yarn/pnpm run lint` for `eslint`.
