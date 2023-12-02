@@ -26,9 +26,9 @@ This project was bootstrapped with [Create React App](https://create-react-app.d
 - All packages are the `latest`, no npm audit warning.
   - Package issues are fixed.
   - Run GitHub Actions matrix CI on:
-    - Different OS (windows-latest/macos-latest/ubuntu-latest)
-    - Different Node.js version (maintenance LTS/active LTS/current)
-    - Different package manager (npm/yarn/yarn-berry/pnpm/bun)
+    - Different OS (windows-latest / macos-latest / ubuntu-latest)
+    - Different Node.js version (maintenance LTS / active LTS / current)
+    - Different package manager (npm / yarn / yarn-berry / pnpm / bun)
 - Add `pathRewrite` feature.
 - Add `npm/yarn/pnpm/bun run preview`, which share same proxy config with development server.
 - Add `npm/yarn/pnpm/bun run lint` for `eslint`.
@@ -111,6 +111,8 @@ npm i react@17 react-dom@17 @testing-library/react@12
 yarn add react@17 react-dom@17 @testing-library/react@12
 # pnpm
 pnpm add react@17 react-dom@17 @testing-library/react@12
+# bun
+bun add react@17 react-dom@17 @testing-library/react@12
 ```
 
 #### Step-2 Change react render to react17 and import polyfill
