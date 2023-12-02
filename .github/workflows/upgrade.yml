@@ -1,16 +1,20 @@
 name: Upgrade
+
 on:
   # GitHub Actions use UTC time, so 21:00 means 5:00 UTC +8 Timezone
   schedule:
     - cron: "0 21 * * *"
   workflow_dispatch:
+
 permissions:
   contents: write
   actions: read
   checks: write
+
 env:
   NODE_ENV: development
   COMMIT_MSG_BODY: ""
+
 jobs:
   upgrade:
     name: Upgrade minor/patch version packages
@@ -18,13 +22,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Setup node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
           cache: npm
+
       - name: Install dependencies
         run: npm ci
+
       - name: Check outdated packages
         run: |
           {
@@ -32,8 +39,10 @@ jobs:
             npm outdated --json | jq -cr 'to_entries[] | select( .value.current != .value.wanted ) | "- \(.key) \(.value.current) -> \(.value.wanted)" '
             echo EOF
           } >> "$GITHUB_ENV"
+
       - name: Upgade packages if needed
         if: ${{ env.COMMIT_MSG_BODY != '' }}
+
         run: npm update
       - name: Commit lockfile if needed
         if: ${{ env.COMMIT_MSG_BODY != '' }}
