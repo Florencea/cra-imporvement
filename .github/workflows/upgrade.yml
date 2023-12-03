@@ -43,12 +43,13 @@ jobs:
       - name: Upgade packages if needed
         if: ${{ env.COMMIT_MSG_BODY != '' }}
         run: npm update
-        
+
       - name: Commit lockfile if needed
         if: ${{ env.COMMIT_MSG_BODY != '' }}
         run: |
           git config user.name ${{ github.actor }}
           git config user.email "$(gh api /users/${{ github.actor }} | jq .email -r)"
+          git add package-lock.json
           git add package.json
           git commit -m "fix(deps): update all non-major dependencies" -m "${{ env.COMMIT_MSG_BODY }}" -m "by CI script"
           git push
