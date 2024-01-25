@@ -11,7 +11,7 @@
     "format": "prettier \"**/*\" --write --ignore-unknown --cache"
   },
   "dependencies": {
-    "@babel/core": "^7.23.7",
+    "@babel/core": "^7.23.9",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@svgr/webpack": "^8.1.0",
@@ -74,7 +74,7 @@
     "terser": "^5.27.0",
     "terser-webpack-plugin": "^5.3.10",
     "typescript": "^5.3.3",
-    "web-vitals": "^3.5.1",
+    "web-vitals": "^3.5.2",
     "webpack": "^5.90.0",
     "webpack-dev-server": "^4.15.1",
     "webpack-manifest-plugin": "^5.0.0",
