@@ -104,7 +104,7 @@ Format codes with `prettier`
 - Check pacakges manually and install proper version
 
 ```sh
-npm i react@17 react-dom@17 @testing-library/react@12
+npm i react@17 react-dom@17 @testing-library/react@12 @types/react@17 @types/react-dom@17
 ```
 
 #### Step-2 Change react render to react17 and import polyfill
