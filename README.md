@@ -23,7 +23,7 @@ This project was bootstrapped with [Create React App](https://create-react-app.d
 
 ## Features
 
-- All packages are the `latest`, no npm audit warning.
+- All packages are semver `latest`, no npm audit warning.
   - Package issues are fixed.
   - Run GitHub Actions matrix CI on:
     - Different OS (windows-2022 / macos-14 / ubuntu-22.04)
