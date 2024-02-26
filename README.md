@@ -1,10 +1,10 @@
-# Create React App Imporvement
+# CRA Imporvement
 
 ![CI](https://github.com/Florencea/create-react-app-imporvement/actions/workflows/test.yml/badge.svg)
 
 This project was bootstrapped with [Create React App](https://create-react-app.dev/) and then eject and apply some imporvement on it.
 
-- [Create React App Imporvement](#create-react-app-imporvement)
+- [CRA Imporvement](#cra-imporvement)
   - [Features](#features)
     - [Proxy Path Rewrite](#proxy-path-rewrite)
   - [Available Scripts](#available-scripts)
