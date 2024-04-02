@@ -89,7 +89,7 @@ checkBrowsers(paths.appPath, isInteractive)
           secure: false,
           pathRewrite: (path) =>
             path.replace(proxyPathSource, proxyPathDestination),
-          logLevel: "error",
+          logger: console,
         }
       : undefined;
 
