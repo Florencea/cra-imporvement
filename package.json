@@ -63,7 +63,7 @@
     "style-loader": "^3.3.4",
     "terser": "^5.30.3",
     "terser-webpack-plugin": "^5.3.10",
-    "typescript": "^5.4.3",
+    "typescript": "^5.4.4",
     "web-vitals": "^3.5.2",
     "webpack": "^5.91.0",
     "webpack-dev-server": "^4.15.2",
