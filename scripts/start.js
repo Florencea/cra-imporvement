@@ -138,7 +138,7 @@ checkBrowsers(paths.appPath, isInteractive)
 
     ["SIGINT", "SIGTERM"].forEach(function (sig) {
       process.on(sig, function () {
-        devServer.close();
+        devServer.stop();
         process.exit();
       });
     });
@@ -146,7 +146,7 @@ checkBrowsers(paths.appPath, isInteractive)
     if (process.env.CI !== "true") {
       // Gracefully exit when stdin ends
       process.stdin.on("end", function () {
-        devServer.close();
+        devServer.stop();
         process.exit();
       });
     }
