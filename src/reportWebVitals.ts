@@ -1,15 +1,14 @@
 import {
-  CLSReportCallback,
-  FCPReportCallback,
-  FIDReportCallback,
-  INPReportCallback,
-  LCPReportCallback,
   ReportOpts,
-  TTFBReportCallback,
+  type CLSMetric,
+  type FCPMetric,
+  type INPMetric,
+  type LCPMetric,
+  type TTFBMetric,
 } from "web-vitals";
 
 export const reportCLS = async (
-  onReport?: CLSReportCallback,
+  onReport?: (metric: CLSMetric) => void,
   opts?: ReportOpts,
 ) => {
   if (onReport && onReport instanceof Function) {
@@ -19,7 +18,7 @@ export const reportCLS = async (
 };
 
 export const reportFCP = async (
-  onReport?: FCPReportCallback,
+  onReport?: (metric: FCPMetric) => void,
   opts?: ReportOpts,
 ) => {
   if (onReport && onReport instanceof Function) {
@@ -28,18 +27,8 @@ export const reportFCP = async (
   }
 };
 
-export const reportFID = async (
-  onReport?: FIDReportCallback,
-  opts?: ReportOpts,
-) => {
-  if (onReport && onReport instanceof Function) {
-    const { onFID } = await import("web-vitals");
-    onFID(onReport, opts);
-  }
-};
-
 export const reportINP = async (
-  onReport?: INPReportCallback,
+  onReport?: (metric: INPMetric) => void,
   opts?: ReportOpts,
 ) => {
   if (onReport && onReport instanceof Function) {
@@ -49,7 +38,7 @@ export const reportINP = async (
 };
 
 export const reportLCP = async (
-  onReport?: LCPReportCallback,
+  onReport?: (metric: LCPMetric) => void,
   opts?: ReportOpts,
 ) => {
   if (onReport && onReport instanceof Function) {
@@ -59,7 +48,7 @@ export const reportLCP = async (
 };
 
 export const reportTTFB = async (
-  onReport?: TTFBReportCallback,
+  onReport?: (metric: TTFBMetric) => void,
   opts?: ReportOpts,
 ) => {
   if (onReport && onReport instanceof Function) {
