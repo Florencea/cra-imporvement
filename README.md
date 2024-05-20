@@ -122,7 +122,6 @@ import "./index.css";
 import {
   reportCLS,
   reportFCP,
-  reportFID,
   reportINP,
   reportLCP,
   reportTTFB,
@@ -140,7 +139,6 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://github.com/GoogleChrome/web-vitals
 reportCLS();
 reportFCP();
-reportFID();
 reportINP();
 reportLCP();
 reportTTFB();
