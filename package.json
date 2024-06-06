@@ -61,7 +61,7 @@
     "semver": "^7.6.2",
     "source-map-loader": "^5.0.0",
     "style-loader": "^4.0.0",
-    "terser": "^5.31.0",
+    "terser": "^5.31.1",
     "terser-webpack-plugin": "^5.3.10",
     "typescript": "^5.4.5",
     "web-vitals": "^4.0.1",
