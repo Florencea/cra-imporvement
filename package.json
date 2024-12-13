@@ -61,7 +61,7 @@
     "source-map-loader": "^5.0.0",
     "style-loader": "^4.0.0",
     "terser": "^5.37.0",
-    "terser-webpack-plugin": "^5.3.10",
+    "terser-webpack-plugin": "^5.3.11",
     "typescript": "^5.7.2",
     "web-vitals": "^4.2.4",
     "webpack": "^5.97.1",
